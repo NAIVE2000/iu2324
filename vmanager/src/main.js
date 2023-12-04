@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
-//hola soy Ka
+//hola soy K
 import { createApp } from 'vue'
 import App from './App.vue'
 
