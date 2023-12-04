@@ -87,7 +87,7 @@ defineExpose({ show });
           <br>
           <SelectBox :start="vm.iso" :all="M.getFiles()" id="e-iso" label="Fichero ISO" />
         </div>
-        <button type="submit" class="invisible">Submit</button>
+        <button type="submit" class="invisible" title="Submit">Submit</button>
       </form>
     </template>
     <template #footer>
