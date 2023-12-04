@@ -75,7 +75,7 @@ function list(state) {
       <button v-if="element.state != VmState.RUNNING" class="btn btn-outline-secondary"
         @click="$emit('setState', VmState.RUNNING)" >▶</button>
       <button v-if="element.state != VmState.SUSPENDED" class="btn btn-outline-secondary"
-        @click="$emit('setState', VmState.SUSPENDED)">💤</button>
+        @click="$emit('setState', VmState.SUSPENDED)" title = "Sleep">💤</button>
       <button v-if="element.state != VmState.STOPPED" class="btn btn-outline-secondary"
         @click="$emit('setState', VmState.STOPPED)" title="Stop">🛑</button>
       
