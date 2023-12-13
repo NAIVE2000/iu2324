@@ -114,9 +114,9 @@ function list(state) {
 
     <h5>Acciones</h5>
     <div class="btn-group">
-      <button @click="$emit('editGroup')" class="btn btn-outline-success" title="Editar">✏️</button>
+      <button v-if="estado == VmState.STOPPED" @click="$emit('editGroup')" class="btn btn-outline-success" title="Editar">✏️</button>
       <button @click="$emit('filterGroup')" class="btn btn-outline-warning" title="Detalles">🔬</button>
-      <button @click="$emit('rmGroup')" class="btn btn-outline-danger" title="Eliminar">🗑️</button>
+      <button v-if="estado == VmState.STOPPED" @click="$emit('rmGroup')" class="btn btn-outline-danger" title="Eliminar">🗑️</button>
     </div>
   </div>
 </template>
