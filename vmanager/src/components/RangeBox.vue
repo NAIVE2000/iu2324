@@ -30,7 +30,7 @@ onMounted(() => {
       <div class="col-1">
         <input type="number" size="5" class="form-range-control" :id="`${id}-v`" :name="`${id}-v`" :min="min" :max="max" v-model="value">
       </div>
-      <div class="col-12">
+      <div class="col-3">
         <span class="form-text text-end d-block">{{ units }}</span>
       </div>
   </div>

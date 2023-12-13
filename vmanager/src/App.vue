@@ -68,9 +68,6 @@ function rmVm(id) {
 
 function setState(id, state) {
   const vm = M.resolve(id);
-  if(state==VmState.STOPPED){
-    
-  }
   vm.state = state;
   M.setVm(vm);
   refresh();
