@@ -169,7 +169,7 @@ const switchGroups = (vmId) => {
   <!-- 
     Div principal; container-fluid expande el contenedor para que ocupe todo el espacio disponible 
   -->
-  <div class="container-fluid">
+  <div class="container-fluid bg-light pt-3">
     <div class="row">
       <!-- 1a columna: grupos -->
       <div id="div-groups" class="col-md">

@@ -11,7 +11,7 @@ const props = defineProps({
 })
 
 const current = ref([])
-const possible = ref([])
+const possible = ref([]) 
 
 onMounted(() => {
   current.value = props.start.map(id => resolve(id));
