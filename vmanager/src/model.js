@@ -90,9 +90,9 @@ class File {
  * Possible Vm states.
  */
 const VmState = {
-    RUNNING: 'funcionando', 
-    STOPPED: 'apagada',
-    SUSPENDED: 'suspendida', 
+    RUNNING: 'funcionando ▶', 
+    STOPPED: 'apagada 🛑',
+    SUSPENDED: 'suspendida 💤', 
 }
 
 /**
