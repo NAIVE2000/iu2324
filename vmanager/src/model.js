@@ -302,24 +302,32 @@ function getFiles(pattern) {
  * elimina una VM del sistema
  */
 function rmVm(vmId) {
-    console.log(`removing vm ${vmId}`)
-    if (!cache.has(+vmId)) {
-        throw Error(`Cannot rm with id ${vmId}: not found`);
-    }
 
-    // elimina de vms    
-    const removals = U.rmWhere(state.vms, o => o.id == vmId);
-    if (removals != 1) {
-        throw Error(`Expected 1 removal, but did ${removals}`)
-    }
+    const isConfirmed = window.confirm(`¿Estás seguro de que quieres eliminar la VM con ID ${vmId}?`);
 
-    // elimina menciones en grupos
-    for (let g of state.groups) {
-        U.rmWhere(g.members, o => o == vmId);
-    }
+    if (isConfirmed) {
+        console.log(`removing vm ${vmId}`)
+        if (!cache.has(+vmId)) {
+            throw Error(`Cannot rm with id ${vmId}: not found`);
+        }
 
-    // regenera cachés: cosas pueden haber sido borradas
-    state = updateState(state)
+        // elimina de vms    
+        const removals = U.rmWhere(state.vms, o => o.id == vmId);
+        if (removals != 1) {
+            throw Error(`Expected 1 removal, but did ${removals}`)
+        }
+
+        // elimina menciones en grupos
+        for (let g of state.groups) {
+            U.rmWhere(g.members, o => o == vmId);
+        }
+
+        // regenera cachés: cosas pueden haber sido borradas
+        state = updateState(state)
+    }
+    else{
+        console.log(`Cancellation of ${vmId}`)
+    }
 }
 
 /**
