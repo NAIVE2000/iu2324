@@ -28,10 +28,10 @@ onMounted(() => {
         <input type="range" class="form-range" :id="id" :name="id" :min="min" :max="max" :step="step" v-model="value">
       </div>
       <div class="col-1">
-        <input type="number" size="5" class="form-control-sm" :id="`${id}-v`" :name="`${id}-v`" :min="min" :max="max" v-model="value">
+        <input type="number" size="5" class="form-range-control" :id="`${id}-v`" :name="`${id}-v`" :min="min" :max="max" v-model="value">
       </div>
-      <div class="col-auto text-start">
-        <span class="form-text">{{ units }}</span>
+      <div class="col-12">
+        <span class="form-text text-end d-block">{{ units }}</span>
       </div>
   </div>
 </template>

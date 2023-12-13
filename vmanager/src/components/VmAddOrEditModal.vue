@@ -76,14 +76,14 @@ defineExpose({ show });
           <TextBox :start="vm.name" id="e-name" label="nombre" />
           <MemberBox :start="vm.groups" :all="M.getGroups()" id="e-groups" label="grupos" />
           <br>
-          <RangeBox :start="vm.ram" id="e-ram" label="ram" :min="0" :max="128" units="Gb" />
-          <RangeBox :start="vm.hd" id="e-hdd" label="hdd" :min="0" :max="4 * 1024" :step="256" units="Gb" />
+          <RangeBox :start="vm.ram" id="e-ram" label="ram" :min="0" :max="100" units="Gb" />
+          <RangeBox :start="vm.hd" id="e-hdd" label="hdd" :min="0" :max="100" :step="256" units="Gb" />
           <RangeBox :start="vm.cpu" id="e-cpu" label="cpu" :min="0" :max="100" units="%" />
-          <RangeBox :start="vm.cores" id="e-cores" label="cores" :min="1" :max="8" units="#" />
+          <RangeBox :start="vm.cores" id="e-cores" label="cores" :min="0" :max="100" units="#" />
           <br>
           <IpBox :start="vm.ip" id="e-ip" label="ip" />
-          <RangeBox :start="vm.up" id="e-up" label="up" :min="0" :max="1024 * 20" units="Kbps" />
-          <RangeBox :start="vm.down" id="e-down" label="down" :min="0" :max="1024 * 20" units="Kbps" />
+          <RangeBox :start="vm.up" id="e-up" label="up" :min="0" :max="100" units=" Kbps" />
+          <RangeBox :start="vm.down" id="e-down" label="down" :min="0" :max="100" units=" Kbps" />
           <br>
           <SelectBox :start="vm.iso" :all="M.getFiles()" id="e-iso" label="Fichero ISO" />
         </div>
