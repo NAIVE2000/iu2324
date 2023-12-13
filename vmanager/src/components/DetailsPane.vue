@@ -67,7 +67,7 @@ function list(state) {
   
     <h5>Acciones</h5>
     <div class="btn-group">
-      <button @click="$emit('editVm')" class="btn btn-outline-success" title="Editar">✏️</button>
+      <button v-if="element.state == VmState.RUNNING" @click="$emit('editVm')" class="btn btn-outline-success" title="Editar">✏️</button>
 
       <button v-if="element.groups.length" class="btn btn-outline-warning"
         @click="$emit('filterVm')" title="Detalles">🔬</button>
