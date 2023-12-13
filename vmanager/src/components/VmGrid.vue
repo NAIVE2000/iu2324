@@ -73,6 +73,9 @@ function capitalize(str) {
             <span class="badge bg-secondary" v-for="e in entry[key].map(v => resolve(v)).slice(0,4)" :key="e.id">
               {{ e.name }}
             </span>
+            <template v-if="entry[key].map(v => resolve(v)).length > 4">
+              <span> + {{entry[key].map(v => resolve(v)).length - 4}}</span>
+            </template>
           </template>
           <template v-else>
             {{entry[key]}}
