@@ -116,10 +116,25 @@ function list(state) {
     <div class="btn-group">
       <button v-if="estado == VmState.STOPPED" @click="$emit('editGroup')" class="btn btn-outline-success" title="Editar">✏️</button>
       <button @click="$emit('filterGroup')" class="btn btn-outline-warning" title="Detalles">🔬</button>
-      <button v-if="estado == VmState.STOPPED" @click="$emit('rmGroup')" class="btn btn-outline-danger" title="Eliminar">🗑️</button>
+      <button v-if="estado == VmState.STOPPED" @click="showConfirmation"  class="btn btn-outline-danger" title="Eliminar">🗑️</button>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    showConfirmation() {
+      if (window.confirm("¿Estás seguro de que deseas eliminar?")) {
+        // Lógica para eliminar
+        this.$emit('rmGroup');
+      } else {
+        // Cancelado
+      }
+    },
+  },
+};
+</script>
 
 <style scoped>
   tr>th {
