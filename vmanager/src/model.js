@@ -303,7 +303,7 @@ function getFiles(pattern) {
  */
 function rmVm(vmId) {
 
-    const isConfirmed = window.confirm(`¿Estás seguro de que quieres eliminar la VM con ID ${vmId}?`);
+    const isConfirmed = window.confirm(`¿Are you sure you wish to remove VM:${vmId}?`);
 
     if (isConfirmed) {
         console.log(`removing vm ${vmId}`)
@@ -326,7 +326,7 @@ function rmVm(vmId) {
         state = updateState(state)
     }
     else{
-        console.log(`Cancellation of ${vmId}`)
+        console.log(`Cancellation of VM:${vmId}`)
     }
 }
 
