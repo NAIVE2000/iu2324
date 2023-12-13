@@ -67,19 +67,19 @@ function list(state) {
   
     <h5>Acciones</h5>
     <div class="btn-group">
-      <button @click="$emit('editVm')" class="btn btn-outline-success">✏️</button>
+      <button @click="$emit('editVm')" class="btn btn-outline-success" title="Editar">✏️</button>
 
       <button v-if="element.groups.length" class="btn btn-outline-warning"
-        @click="$emit('filterVm')" >🔬</button>
+        @click="$emit('filterVm')" title="Detalles">🔬</button>
       
       <button v-if="element.state != VmState.RUNNING" class="btn btn-outline-secondary"
-        @click="$emit('setState', VmState.RUNNING)" >▶</button>
+        @click="$emit('setState', VmState.RUNNING)" title="Play">▶</button>
       <button v-if="element.state != VmState.SUSPENDED" class="btn btn-outline-secondary"
-        @click="$emit('setState', VmState.SUSPENDED)" title = "Sleep">💤</button>
+        @click="$emit('setState', VmState.SUSPENDED)" title="Apagar">💤</button>
       <button v-if="element.state != VmState.STOPPED" class="btn btn-outline-secondary"
-        @click="$emit('setState', VmState.STOPPED)" title="Stop">🛑</button>
+        @click="$emit('setState', VmState.STOPPED)" title="Parar">🛑</button>
       
-      <button @click="$emit('rmVm')" class="btn btn-outline-danger">🗑️</button>
+      <button @click="$emit('rmVm')" class="btn btn-outline-danger" title="Eliminar">🗑️</button>
     </div>
 
     </div>
@@ -114,9 +114,9 @@ function list(state) {
 
     <h5>Acciones</h5>
     <div class="btn-group">
-      <button @click="$emit('editGroup')" class="btn btn-outline-success">✏️</button>
-      <button @click="$emit('filterGroup')" class="btn btn-outline-warning">🔬</button>
-      <button @click="$emit('rmGroup')" class="btn btn-outline-danger">🗑️</button>
+      <button @click="$emit('editGroup')" class="btn btn-outline-success" title="Editar">✏️</button>
+      <button @click="$emit('filterGroup')" class="btn btn-outline-warning" title="Detalles">🔬</button>
+      <button @click="$emit('rmGroup')" class="btn btn-outline-danger" title="Eliminar">🗑️</button>
     </div>
   </div>
 </template>
