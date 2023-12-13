@@ -70,7 +70,9 @@ function capitalize(str) {
             <span class="name">{{entry[key]}}</span>
           </template>
           <template v-else-if="Array.isArray(entry[key])">
-            {{entry[key].map(v => resolve(v).name).join(' ')}}
+            <span class="badge bg-secondary" v-for="e in entry[key].map(v => resolve(v)).slice(0,4)" :key="e.id">
+              {{ e.name }}
+            </span>
           </template>
           <template v-else>
             {{entry[key]}}

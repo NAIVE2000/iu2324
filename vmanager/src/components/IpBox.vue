@@ -11,7 +11,7 @@ let value = ref([])
 
 onMounted(() => {
   value.value = props.start.split(".")
-})
+}) 
 
 </script>
 
