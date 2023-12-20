@@ -204,7 +204,7 @@ function toggleDarkMode() {
               <span class="name">{{ groupFilterVm.name }}×</span>
             </span>            
           </h5>
-          <a class="d-inline d-sm-none details" href="#div-details">↘️</a>
+          <a class="d-inline d-sm-none details"  href="#div-details">↘️</a>
         </div>        
         <span v-if="debug"> {{ searchGroupQuery }}</span>        
         <FilterAddBox 
@@ -212,7 +212,7 @@ function toggleDarkMode() {
           :cols="['name', 'members']"
           @add-element="edGroup(-1)"
           addBtnTitle="Añadir nuevo grupo"/>          
-        <div class="overflow-y-scroll vh-100">
+        <div class="overflow-y-scroll vh-100" style="cursor:pointer">
             <VmGrid :data="groups" :columns="['name', 'members']" :filter-key="searchGroupQuery.all"
             @choose="(e) => { console.log('selected vm', e); selected = M.resolve(e) }">
             </VmGrid>
@@ -237,7 +237,7 @@ function toggleDarkMode() {
           :cols="['name', 'ram', 'hd', 'ip']"
           @add-element="edVm(-1)"
           addBtnTitle="Añadir nueva VM"/>
-        <div class="overflow-y-scroll vh-100">
+        <div class="overflow-y-scroll vh-100" style="cursor:pointer">
           <VmGrid :data="vms" :columns="['name', 'ram', 'groups', 'state']" :filter-key="searchVmQuery.all"
           @choose="(e) => { console.log('selected group', e); selected = M.resolve(e) }">
           </VmGrid>

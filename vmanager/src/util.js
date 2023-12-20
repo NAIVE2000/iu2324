@@ -292,7 +292,7 @@ export const simpsonsNames = [
     "lisa","bart","maggie","homer","marge","millhouse","martin","ralph",
     "burns","smithers","barney","grampa","flanders","wiggum","lovejoy",
     "willie","apu","bob","skinner","edna","krusty","nelson","quimby",
-    "brockman","apu","riviera","otto","patty","selma","frink"
+    "brockman","apu","riviera","otto","patty","selma","frink","a","a","a","a","a","a","a","a","a","a","a","a","a","a","a"
 ]
 
 // https://en.wikipedia.org/wiki/List_of_Microsoft_Windows_versions
