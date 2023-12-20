@@ -134,11 +134,29 @@ const switchGroups = (vmId) => {
     M.resolve(vmId)        
 }
 
+
+//cambiar pestaña
+
+const currentTab = ref('div-groups');
+
+function changeTab(tab) {
+  currentTab.value = tab;
+}
+
+//modo oscuro
+
+const darkMode = ref(false);
+
+function toggleDarkMode() {
+  darkMode.value = !darkMode.value;
+  document.body.classList.toggle('dark-mode', darkMode.value);
+}
+
 </script>
 
 <template>
   <!-- Navbar principal -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg" :class="{ 'navbar-dark bg-dark': darkMode, 'navbar-light bg-light': !darkMode }">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">VManager</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -148,20 +166,24 @@ const switchGroups = (vmId) => {
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#div-groups">Grupos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#div-vms">Vms</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" @click="changeTab('div-groups')">Grupos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" @click="changeTab('div-vms')">Vms</a>
+          </li>
         </ul>        
-          <!--<div class="nav-item ms-auto">
-            <div class="btn-group">
+          <div class="nav-item ms-auto">
+            <button class="btn btn-outline-secondary" @click="toggleDarkMode">
+              {{ darkMode ? 'Modo Claro' : 'Modo Oscuro' }}
+            </button>
+
+            <!--<div class="btn-group">
               <button id="save" class="btn btn-outline-secondary" title="Guardar">💾 </button>
               <button id="clean" class="btn btn-outline-secondary" title="Limpiar">🧽</button>
               <button id="restore" class="btn btn-outline-secondary" title="Deshacer">↩️</button>
-            </div>
-          </div>-->
+            </div>-->
+          </div>
       </div>
     </div>
   </nav>
@@ -169,10 +191,11 @@ const switchGroups = (vmId) => {
   <!-- 
     Div principal; container-fluid expande el contenedor para que ocupe todo el espacio disponible 
   -->
-  <div class="container-fluid bg-light pt-3">
+
+  <div class="container-fluid pt-3" :class="{ 'navbar-dark bg-dark': darkMode, 'navbar-light bg-light': !darkMode }" :style="{ color: darkMode ? 'white' : '' }">
     <div class="row">
-      <!-- 1a columna: grupos -->
-      <div id="div-groups" class="col-md">
+      <!-- Columna de grupos -->
+      <div id="div-groups" class="col-md-9" v-show="currentTab === 'div-groups'">
         <div>
           <h5 class="d-inline">Grupos
             <span v-if="groupFilterVm" class="filter"
@@ -195,8 +218,8 @@ const switchGroups = (vmId) => {
             </VmGrid>
         </div>
       </div>
-      <!-- 2a columna: vms -->
-      <div id="div-vms" class="col-md">
+      <!-- Columna de Vms -->
+      <div id="div-vms" class="col-md-9" v-show="currentTab === 'div-vms'">
         <div>
           <a class="d-inline d-sm-none escape" href="#">⬆️</a>
           <h5 class="d-inline">Máquinas Virtuales 
@@ -220,8 +243,8 @@ const switchGroups = (vmId) => {
           </VmGrid>
       </div>
       </div>
-      <!-- 3a zona: detalles vms actuales -->
-      <div id="div-details" class="col-md">
+      <!-- Columna de detalles -->
+      <div id="div-details" class="col-md-3" v-show="currentTab === 'div-vms' || currentTab === 'div-groups' ">
         <div>
           <a class="d-inline d-sm-none escape" href="#">⬆️</a>
           <h5 class="d-inline">Detalles</h5>
@@ -272,22 +295,52 @@ const switchGroups = (vmId) => {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
+
+#app.dark-mode {
+  color: #ffffff;
+}
+
 .escape {
   font-size: 150%;
   padding-right: 1em;
 }
+
 .details {
   font-size: 150%;
   padding-left: 1em;
 }
-span.filter>.name {
+
+span.filter > .name {
   font-weight: 1000;
 }
+
 span.filter {
   border-bottom: 2px dashed gray;
 }
+
 span.filter:hover {
   border-bottom: 2px dashed blue;
 }
 
+/* Modo oscuro */
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+body.dark-mode .navbar-nav .nav-link,
+body.dark-mode .btn {
+  color: #ffffff;
+}
+
+body.light-mode {
+  background-color: #ffffff;
+  color: #2c3e50;
+}
+
+body.light-mode .navbar-nav .nav-link,
+body.light-mode .btn {
+  color: #2c3e50;
+}
 </style>
