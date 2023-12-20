@@ -65,16 +65,16 @@ function capitalize(str) {
       <tr v-for="entry in filteredData" :key="entry.id" 
         @click="$emit('choose', entry.id)">
 
-        <td v-for="key in columns" :key="`_${entry.id}_${key}`" class="text-start">
+        <td v-for="key in columns" :key="`_${entry.id}_${key}`" class="text-start p-2">
           <template v-if="key === 'name'">
             <span class="name">{{entry[key]}}</span>
           </template>
           <template v-else-if="Array.isArray(entry[key])">
-            <span class="badge bg-secondary" v-for="e in entry[key].map(v => resolve(v)).slice(0,4)" :key="e.id">
+            <span class="badge bg-secondary" v-for="e in entry[key].map(v => resolve(v)).slice(0,20)" :key="e.id">
               {{ e.name }}
             </span>
-            <template v-if="entry[key].map(v => resolve(v)).length > 4">
-              <span> + {{entry[key].map(v => resolve(v)).length - 4}}</span>
+            <template v-if="entry[key].map(v => resolve(v)).length > 20">
+              <span> + {{entry[key].map(v => resolve(v)).length - 20}}</span>
             </template>
           </template>
           <template v-else>

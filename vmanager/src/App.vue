@@ -157,7 +157,7 @@ function toggleDarkMode() {
 <template>
   <!-- Navbar principal -->
   <nav class="navbar navbar-expand-lg" :class="{ 'navbar-dark bg-dark': darkMode, 'navbar-light bg-light': !darkMode }">
-    <div class="container-fluid">
+    <div class="container-fluid" >
       <a class="navbar-brand" href="#">VManager</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
